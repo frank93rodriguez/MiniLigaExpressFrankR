@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Clasificación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-accordion-group *ngIf="!loading && standings.length > 0">
+
+    <ion-accordion *ngFor="let t of standings; let i = index">
+      <ion-item slot="header" [ngClass]="i % 2 === 0 ? 'ion-color-light' : 'ion-color-step-50'">
+        <ion-label>
+          <h2>{{ t.name }}</h2>
+          <p>Puntos: <strong class="ion-color-primary">{{ t.points }}</strong></p>
+        </ion-label>
+      </ion-item>
+
+      <div slot="content" class="ion-padding ion-margin-start ion-margin-end ion-color-step-10">
+        <ion-list>
+          <ion-item>
+            <ion-label>Partidos jugados</ion-label>
+            <ion-note slot="end">{{ t.played }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Goles a favor</ion-label>
+            <ion-note slot="end">{{ t.goals_for }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Goles en contra</ion-label>
+            <ion-note slot="end">{{ t.goals_against }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Diferencia de goles</ion-label>
+            <ion-note slot="end">{{ t.goal_diff }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+
+  <div *ngIf="!loading && standings.length === 0" class="ion-text-center ion-padding ion-text-secondary">
+    No hay datos para mostrar.
+  </div>
+
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Actualizar Resultado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        {{ match.home_team }} vs {{ match.away_team }}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <ion-item>
+      <ion-label position="stacked">Goles {{ match.home_team }}</ion-label>
+      <ion-input
+        type="number"
+        formControlName="home_score"
+        [class.invalid]="form.get('home_score')?.invalid && form.get('home_score')?.touched">
+      </ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('home_score')?.invalid && form.get('home_score')?.touched">
+      Ingresa un valor válido (0 o mayor)
+    </ion-note>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="stacked">Goles {{ match.away_team }}</ion-label>
+      <ion-input
+        type="number"
+        formControlName="away_score"
+        [class.invalid]="form.get('away_score')?.invalid && form.get('away_score')?.touched">
+      </ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('away_score')?.invalid && form.get('away_score')?.touched">
+      Ingresa un valor válido (0 o mayor)
+    </ion-note>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="form.invalid || submitting"
+      class="ion-margin-top">
+      {{ submitting ? 'Actualizando...' : 'Actualizar Resultado' }}
+    </ion-button>
+
+  </form>
+</ion-content>
