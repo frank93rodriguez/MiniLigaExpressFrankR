@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "4c870700-dfdf-4a9b-ad0d-2426a6b8e4cf",
+		"name": "mini-liga-express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25647805"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/teams",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/teams",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Juventus",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/matches",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/matches/1/result",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "away_score",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "home_score",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/matches/1/result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"matches",
+						"1",
+						"result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/standings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/standings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"standings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

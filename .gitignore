@@ -1,0 +1,33 @@
+# Node
+node_modules/
+dist/
+www/
+# PHP / Laravel
+/vendor
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/storage/*.key
+/public/storage
+# OS
+.DS_Store
+Thumbs.db
+# IDE
+.idea/
+.vscode/
+# Generated
+
+# === Backend ===
+backend/vendor/
+backend/storage/
+# backend/.env
+
+# === Web ===
+web/node_modules/
+web/dist/
+# web/.env
+
+# === Mobile ===
+mobile/node_modules/
+mobile/www/
+# mobile/.env
