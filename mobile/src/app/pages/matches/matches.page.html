@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Partidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-accordion-group *ngIf="!loading && matches.length > 0">
+
+    <ion-accordion *ngFor="let match of matches; let i = index">
+      <!-- Header visible del partido -->
+      <ion-item slot="header" [ngClass]="i % 2 === 0 ? 'ion-color-light' : 'ion-color-step-50'">
+        <ion-label>
+          <h2>{{ match.home_team }} vs {{ match.away_team }}</h2>
+          <p>Puntos: {{ match.played ? 'Jugado' : 'Pendiente' }}</p>
+        </ion-label>
+        <ion-button fill="outline" size="small" slot="end" (click)="openMatchModal(match, $event)">
+          Actualizar
+        </ion-button>
+      </ion-item>
+
+      <!-- Contenido desplegable -->
+      <div slot="content" class="ion-padding ion-margin-start ion-margin-end ion-color-step-10">
+        <ion-list>
+          <ion-item>
+            <ion-label>Marcador</ion-label>
+            <ion-note slot="end">{{ match.home_score ?? '-' }} - {{ match.away_score ?? '-' }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Ganador</ion-label>
+            <ion-note slot="end">{{ match.winner ?? 'Empate' }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Perdedor</ion-label>
+            <ion-note slot="end">{{ match.loser ?? 'Empate' }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+
+  <div *ngIf="!loading && matches.length === 0" class="ion-text-center ion-padding ion-text-secondary">
+    No hay partidos para mostrar.
+  </div>
+
+</ion-content>
