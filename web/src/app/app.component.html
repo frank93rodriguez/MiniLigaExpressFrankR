@@ -1,0 +1,29 @@
+<nav class="w-full bg-gray-100 dark:bg-gray-900 shadow-sm">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-center sm:justify-start items-center gap-2 sm:gap-6 px-4 py-3">
+    <a
+      routerLink="/teams"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-gray-700 dark:text-gray-200 font-medium hover:text-blue-600 transition-colors duration-200
+             px-3 py-2 rounded-md"
+      [ngClass]="{ 'text-blue-600 bg-blue-100 dark:bg-blue-800 dark:text-white': isActive('/teams') }"
+    >
+      Equipos
+    </a>
+
+    <a
+      routerLink="/standings"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-gray-700 dark:text-gray-200 font-medium hover:text-blue-600 transition-colors duration-200
+             px-3 py-2 rounded-md"
+      [ngClass]="{ 'text-blue-600 bg-blue-100 dark:bg-blue-800 dark:text-white': isActive('/standings') }"
+    >
+      Clasificación
+    </a>
+  </div>
+</nav>
+
+<hr class="border-gray-200 dark:border-gray-700 my-2" />
+
+<router-outlet></router-outlet>
